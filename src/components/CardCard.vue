@@ -9,12 +9,12 @@ export default {
 
 <template>
     <div class="card-card">
-        <div class="image">
-            <img src="https://images.ygoprodeck.com/images/cards_small/34541863.jpg" alt="">
+        <div class="image" v-for="image in cardInfo.card_images">
+            <img :src="image.image_url_small" alt="">
         </div>
         <div class="cards-info">
-            <h3>nome della carta</h3>
-            <div>specie delle carta</div>
+            <h3>{{cardInfo.name}}</h3>
+            <div>{{ cardInfo.archetype }}</div>
         </div>
     </div>
 
