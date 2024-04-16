@@ -14,8 +14,8 @@ export default {
 
 <template>
     <div class="container">
-        <select >
-            <option value="">Scegli uno status</option>
+        <select v-model="store.searchedArchetype" @change="$emit('searchDone')">
+            <option value="">Scegli un archetipo</option>
             <option v-for="archetype in store.archetypes" :value="archetype.archetype_name">{{ archetype.archetype_name }}</option>
         </select>
     </div>
