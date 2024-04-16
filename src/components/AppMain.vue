@@ -17,7 +17,10 @@ export default {
 
 <template>
     <main>
+        
+
         <div class="container">
+
             <div class="card-container">
                 <div class="cards-card">
                     <CardCard v-for="card in store.cards" :key="card.id" :cardInfo="card"></CardCard>

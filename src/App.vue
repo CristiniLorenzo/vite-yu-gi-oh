@@ -3,11 +3,16 @@ import axios from 'axios';
 import { store } from './store.js';
 import AppHeader from './components/AppHeader.vue';
 import AppMain from './components/AppMain.vue';
+import AppSearch from './components/AppSearch.vue';
+
+
 
 export default {
   components: {
     AppHeader,
-    AppMain
+    AppMain,
+    AppSearch,
+
   },
   data() {
     return {
@@ -25,13 +30,14 @@ export default {
     getArchetypeFromApi() {
       axios.get('https://db.ygoprodeck.com/api/v7/archetypes.php')
       .then((response) => {
-        console.log(response);
-        store.archetype = response
+        console.log(response.data);
+        store.archetypes = response.data;
       })
     }
   },
   mounted() {
     this.getCardsFromApi();
+    this.getArchetypeFromApi()
   }
 }
 </script>
@@ -40,8 +46,11 @@ export default {
 <header>
   <AppHeader></AppHeader>
 </header>
-
-<AppMain></AppMain>
+<main>
+  <AppSearch></AppSearch>
+  <AppMain></AppMain>
+</main>
+  
 </template>
 
 <style lang="scss">
