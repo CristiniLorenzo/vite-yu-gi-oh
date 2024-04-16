@@ -18,8 +18,15 @@ export default {
     getCardsFromApi() {
       axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php?num=20&offset=0')
       .then((response) => {
-        console.log(response.data);
+        // console.log(response.data);
         store.cards = response.data.data
+      })
+    },
+    getArchetypeFromApi() {
+      axios.get('https://db.ygoprodeck.com/api/v7/archetypes.php')
+      .then((response) => {
+        console.log(response);
+        store.archetype = response
       })
     }
   },
