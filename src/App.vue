@@ -27,7 +27,7 @@ export default {
 
       const queryParams = {
         num: 20,
-        offset: 0
+        offset: 0,
       };
 
       if(store.searchedArchetype !== ''){
@@ -61,10 +61,10 @@ export default {
 <header>
   <AppHeader></AppHeader>
 </header>
-<main>
-  <AppSearch @searchDone="getCardsFromApi"></AppSearch>
-  <AppMain></AppMain>
-</main>
+
+<AppSearch @searchDone="getCardsFromApi"></AppSearch>
+<AppMain></AppMain>
+
   
 </template>
 
